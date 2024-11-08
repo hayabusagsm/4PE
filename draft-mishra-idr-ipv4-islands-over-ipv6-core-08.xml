@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
+<!ENTITY RFC2545 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2545.xml">
+<!ENTITY RFC4291 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4291.xml">
+<!ENTITY RFC4364 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4364.xml">
+<!ENTITY RFC4659 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4659.xml">
+<!ENTITY RFC4684 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4684.xml">
+<!ENTITY RFC4760 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4760.xml">
+<!ENTITY RFC4798 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4798.xml">
+<!ENTITY RFC4925 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4925.xml">
+<!ENTITY RFC8126 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8126.xml">
+<!ENTITY RFC5492 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5492.xml">
+<!ENTITY RFC5549 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5549.xml">
+<!ENTITY RFC5565 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5565.xml">
+<!ENTITY RFC6074 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6074.xml">
+<!ENTITY RFC6513 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6513.xml">
+<!ENTITY RFC6514 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6514.xml">
+<!ENTITY RFC8174 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8174.xml">
+<!ENTITY RFC8277 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8277.xml">
+<!ENTITY RFC8950 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8950.xml">
+<!ENTITY RFC1812 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.1812.xml">
+<!ENTITY RFC3031 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3031.xml">
+<!ENTITY RFC3032 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3032.xml">
+<!ENTITY RFC3036 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3036.xml">
+<!ENTITY RFC3107 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3107.xml">
+<!ENTITY RFC3270 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3270.xml">
+<!ENTITY RFC2460 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2460.xml">
+<!ENTITY RFC4029 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4029.xml">
+<!ENTITY RFC4271 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4271.xml">
+<!ENTITY RFC4182 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4182.xml">
+<!ENTITY RFC4443 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4443.xml">
+<!ENTITY RFC1122 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.1122.xml">
+<!ENTITY RFC5036 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5036.xml">
+<!ENTITY RFC8660 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8660.xml">
+<!ENTITY RFC8986 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8986.xml">
+<!ENTITY RFC8754 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8754.xml">
+<!ENTITY RFC3209 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3209.xml">
+<!ENTITY RFC8402 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8402.xml">
+<!ENTITY RFC7432 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7432.xml">
+<!ENTITY RFC9252 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.9252.xml">
+<!ENTITY RFC9256 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.9256.xml">
+<!ENTITY RFC7938 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7938.xml">
+<!ENTITY RFC9313 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.9313.xml">
+<!ENTITY RFC8200 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8200.xml">
+<!ENTITY I-D.draft-mapathak-interas-ab SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.mapathak-interas-ab.xml">
+<!ENTITY I-D.draft-ietf-idr-segment-routing-te-policy SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-idr-segment-routing-te-policy.xml">
+<!ENTITY I-D.draft-ietf-idr-bgp-sr-segtypes-ext SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-idr-bgp-sr-segtypes-ext.xml">
+<!ENTITY DYN-CAP SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-idr-dynamic-cap.xml">
+
+]>
+<?xml-stylesheet type="text/xsl" href="rfc2629.xslt" ?>
+<!-- used by XSLT processors -->
+<!-- OPTIONS, known as processing instructions (PIs) go here. -->
+<!-- For a complete list and description of PIs,
+     please see http://xml.resource.org/authoring/README.html. -->
+<!-- Below are generally applicable PIs that most I-Ds might want to use. -->
+<?rfc strict="yes" ?>
+<!-- give errors regarding ID-nits and DTD validation -->
+<!-- control the table of contents (ToC): -->
+<?rfc toc="yes"?>
+<!-- generate a ToC -->
+<?rfc tocdepth="3"?>
+<!-- the number of levels of subsections in ToC. default: 3 -->
+<!-- control references: -->
+<?rfc symrefs="yes"?>
+<!-- use symbolic references tags, i.e, [RFC2119] instead of [1] -->
+<?rfc sortrefs="yes" ?>
+<!-- sort the reference entries alphabetically -->
+<!-- control vertical white space: 
+     (using these PIs as follows is recommended by the RFC Editor) -->
+<?rfc compact="yes" ?>
+<!-- do not start each main section on a new page -->
+<?rfc subcompact="no" ?>
+<!-- keep one blank line between list items -->
+<!-- end of popular PIs -->
+<rfc category="info" docName="draft-mishra-idr-v4-islands-v6-core-4pe-08" ipr="trust200902">
+  <front>
+    <title abbrev="Connecting IPv4 Islands over IPv6 Core (4PE)">Connecting IPv4 Islands over IPv6 Core using IPv4 Provider Edge Routers (4PE)</title>
+
+    <author fullname="Gyan Mishra" initials="G. " surname="Mishra">
+      <organization>Verizon Inc.</organization>
+      <address>
+        <email>gyan.s.mishra@verizon.com</email>
+      </address>
+    </author>
+
+   <author fullname="Jeff Tantsura" initials="J. " surname="Tantsura">
+      <organization>Microsoft, Inc.</organization>
+      <address>
+        <email>jefftant.ietf@gmail.com</email>
+      </address>
+    </author>
+    
+       <author fullname="Mankamana Mishra" initials="M. " surname="Mishra">
+      <organization>Cisco Systems</organization>
+      <address>
+        <postal>
+          <street>821 Alder Drive,</street>
+          <city>MILPITAS</city>
+          <code>CALIFORNIA 95035</code>
+          <country> </country>
+        </postal>
+        <email>mankamis@cisco.com</email>
+      </address>
+    </author>
+    
+   <author fullname="Sudha Madhavi" initials="S." surname="Madhavi">
+      <organization>Juniper Networks, Inc.</organization>
+      <address>
+        <email>smadhavi@juniper.net</email>
+      </address>
+   </author>
+
+   <author fullname="Adam Simpson" initials="A. " surname="Simpson">
+      <organization>Nokia</organization>
+      <address>
+        <email>adam.1.simpson@nokia.com</email>
+      </address>
+    </author>    
+
+   <author fullname="Shuanglong Chen" initials="S. " surname="Chen">
+      <organization>Huawei Technologies</organization>
+      <address>
+        <email>chenshuanglong@huawei.com</email>
+      </address>
+    </author>
+       
+    
+    <date year="2024"/>
+    <area/>
+    <workgroup>BESS Working Group</workgroup>
+    <!-- <keyword/> -->
+    <abstract>
+      <t>	  
+    As operators migrate from an IPv4 core to an IPv6 core for global table routing over the internet, the need arises to be able provide routing connectivity for customers
+    IPv4 only networks.  This document provides a solution called 4Provider Edge, "4PE" that connects IPv4 islands over an IPv6-Only network.  
+      </t>		  
+    </abstract>
+     <note title="Requirements Language">
+      <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+      "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+      document are to be interpreted as described in <xref
+      target="RFC2119">RFC 2119</xref>.</t>
+    </note>       
+
+  </front>
+
+  <middle>
+	  
+    <section anchor="intro" title="Introduction">
+
+  <t>	
+   The problem being solved here for operators is how to connect IPv4 Islands over and IPv6 core without using traditional explicit complex tunneling technologies or IPv6 transition technology tunneling
+   mechanisms which can be overly complicated.   
+  </t>
+		
+	<t>	
+   "6PE" <xref target="RFC4798"/> is the specification for connecting IPv6 Islands over IPv4 MPLS Core using IPv6 Provider Edge Routers (6PE).  
+   This document explains the "4PE" design procedures and how to interconnect IPv4 islands over a
+    IPv6-Only network.  The 4PE routers exchange the IPv4
+   reachability information transparently over the core using the
+   Multiprotocol Border Gateway Protocol (MP-BGP) over IPv6.  Each ingress and egress PE (4PE) router builds an IPv6-signaled path without any explicit tunnel configuration.
+  </t>
+   <t>	
+   The 4PE design is an alternative to the use of standard
+   overlay tunneling technologies such as GRE/IP or any other tunneling technologies which requries explicit tunneling.
+   The 4PE design provides a solution where all
+   tunnels are established dynamically using existing technologies.
+  </t>
+  
+ 
+   <t>	
+   4PE design specifies operations of the 4PE approach for
+   interconnection of IPv4 islands over an IPv6-Only network.  The
+   approach requires that the Provider Edge (PE) routers Provider Edge - Customer Edge (PE-CE) connections to Customer Edge (CE) IPv4 islands to be
+   Dual Stack using Multiprotocol BGP (MP-BGP) routers <xref target="RFC4760"/>, while the
+   core IPv6-Only network.  The approach uses MP-BGP over IPv6 and relies on the identification of the 4PE routers by
+   their IPv6 address without any requirements for complex explicit tunnel configurations.
+  </t>
+
+   <t>	
+   In this document an 'IPv4 island' is a network running native IPv4 as
+   per <xref target="RFC1812"/>.  A typical example of an IPv4 island would be a
+   customer's IPv4 site connected via its IPv4 Customer Edge (CE) router
+   to one (or more) Dual Stack Provider Edge router(s) of a Service
+   Provider.  
+  </t>	
+
+    <t>		     
+      The interconnection method described in this document typically
+   applies to an operator that may or many not already be offering IPv6 BGP/MPLS VPN services for private MPLS, that wants to continue support IPv4 services to
+   its internet customers over the global routing table.  The "4PE" PE Edge routers provide connectivity to the disparate Customer Edge (CE) IPv4 islands Edge routers across an IPv6-Only network.  
+   With the 4PE approach, no tunnels need to be explicitly configured, and no IPv6 headers need to be inserted in front of the IPv4 packets between the customer and provider edge, PE-CE Demark.
+   Providing the IPv4 connectivity to customers over an IPv6 core network is a challenge and complicated without using MP-BGP as described in this document. 
+  </t>
+  
+    <t>
+   The PE-CE interface between the edge router of the IPv4 island Customer Edge (CE) router and the 4PE router is a native IPv4 interface which
+   can be multiple physical or logical. 
+  </t>
+   
+   <t>
+   Configuration and operations of the 4PE overlay approach has similarities to IPv4 VPN overlay service <xref target="RFC4364"/> or IPv6 VPN overlay service
+   <xref target="RFC4659"/> to distribute IPv4 Network Layer Reachability Information (NLRI) for transport over an IPv6-Only network.  
+	</t>
+
+	</section>
+	
+   <section anchor="termo" title="Terminology">
+	<t>	
+	Terminolgoy used in defining the 4PE specification.  
+	</t>
+	
+	  <t>IPv6-Only Network: MPLS, SR-MPLS SRv6</t>
+	       
+ 	</section>
+ 			   
+	
+	<section anchor="proto" title="4PE Design Protocol Overview">
+	<t>
+   Each IPv4 site is connected to at least one Provider Edge router connected to the IPv6-Only network.  
+   The PE router providing IPv4 connectivity to the IPv4 Islands over an IPv6-Only network is called a 4PE router.  The 4PE router MUST be IPv4 and IPv6 dual stack.  
+   The 4PE router MUST be configured with at least one IPv6 address on the IPv6 Core side interface and at least one IPv4 address on the IPv4 Customer side PE-CE interface.
+   The 4PE IPv6 address Loopback0 MUST to be routable within the IPv6 core.
+  </t>
+  
+   <t>
+   The source side 4PE router receiving IPv4 packets from the local Attachment Circuit (AC) PE-CE IPv4-Only or IPv4 and IPv6 Dual Stacked interface Source IPv4 Site is called the
+   Ingress 4PE router relative to these IPv4 packets sent by the Source CE IPv4 Island.  The destination side 4PE router forwarding IPv4 packets to the local Attachment Circuit (AC) PE-CE IPv4-Only or IPv4 and 
+   IPv6 Dual stacked interface from the Source IPv4 Site sending location is called the Egress 4PE router relative to these IPv4 packets received by the CE IPv4 Island.  
+  </t>
+
+   <t>
+   Every ingress 4PE router can signal a path to send to any egress 4PE router without injecting any additional prefixes into the IPv6 core other then the IPv6 signaled next hop Loopback0 used to identify the Ingress and Egress 4PE router. 
+  </t>
+  
+   <t>   
+      Interconnecting IPv4 islands takes place through the following steps:
+   </t>  
+
+
+   <t>
+   1. Exchange IPv4 reachability information among 4PE Ingress and Egress PE routers using MP-BGP <xref target="RFC2545"/>:
+  </t>
+   <t>
+      The 4PE routers exchange IPv4 prefixes over MP-BGP
+      sessions as per <xref target="RFC2545"/> running over IPv6, MP-BGP Address
+      Family Identifier (AFI) IPv4=1.  In doing so,
+      the 4PE routers convey their IPv6 address FEC label binding as the BGP Next Hop for
+      the advertised IPv4 prefixes.  The IPv6 address of the egress 4PE next hop
+      router is encoded using <xref target="RFC8950"/>  next hop encoding for the BGP
+      Next Hop field with a length of 16 or 32 bytes.  The next hop encoding <xref target="RFC8950"/> is constructed 
+      using MP-BGP for IPv6 <xref target="RFC2545"/> is a 16 byte IPv6 Global Unicast Address followed by the 16 byte IPv6 Link Local Address if the Next Hop is on a common subnet with peer.  
+      The ingress and egress 4PE router has the option to bind a label to the IPv4 prefix as per
+      <xref target="RFC8277"/> using BGP Labeled Unicast. 
+ </t>
+          			
+   <t>
+   2. Transport IPv4 packets from the ingress 4PE router to the egress 4PE router:
+  </t>
+  
+   <t>
+      The Ingress 4PE router MAY forward IPv4 NLRI as Labeled prefixes using BGP-LU SAFI over the IPv6-signaled LSP towards the Egress 4PE router identified by the IPv4
+      address advertised in the IPv6 next hop encoding per <xref target="RFC8950"/>.
+   </t>
+  <t>      
+   The 4PE design is fully applicable to both full mesh BGP peering between all Ingress and Egress PE's as well as when Route Reflectors iBGP peering is used where the PEs are all Route Reflector Clients. 
+  </t>
+
+	</section>
+
+        <section anchor="proto3" title="4PE Design procedures">	
+			
+   <t>
+   In this design, using IPv6 Next hop encoding defined in <xref target="RFC8950"/>  allows a 4PE router
+   that has to forward an IPv4 packets to automatically determine the
+   IPv6-signaled path to use for a particular IPv4 destination by using the MP-BGP IPv4 NLRI.
+   </t>
+   
+  <t>   
+    When tunneling IPv4 packets over the IPv6 MPLS core, rather than
+   successively prepend an IPv6 header and then perform label imposition
+   based on the IPv6 header, the ingress 4PE Router has the option to directly
+   perform label imposition of the IPv4 header without prepending any
+   IPv6 header.  The (outer) label imposed MUST correspond to the IPv6-
+   signaled LSP starting on the ingress 4PE Router and ending on the
+   egress 4PE Router.
+  </t>   
+  
+
+   <t>       
+   While this design concept can operate in some situations
+   using a single underlay topmost transport label, one option is to use a
+   a second level of labels that are bound to the customer CE's IPv4 prefixes via
+   MP-BGP advertisements in accordance with <xref target="RFC8277"/>. 
+  </t>  
+  
+ <t>    
+   The reason for labeling the IPv4 prefixes is as follows:
+   1. Allows for Penultimate Hop Popping (PHP) on the IPv6 Label Switch Router (LSR), upstream of the
+   egress 4PE router.
+   2. After the topmost label has been popped, the Bototm of Stack (BOS) service label is now still present.
+   3. PHP node still transmits the labeled packets, instead of having to transmit unlableled IPv4 packets and
+   now can encapsulate them appropriately so they are not dropped. 
+  </t>  
+  
+  <t>    
+   Another reason for second level bottom of stack label is for the existing IPv6-signaled LSP. This LSP is using "IPv6 Explicit NULL
+   label" over the last hop.  This is becauase the LSP is already being
+   used to transport IPv6 traffic with the Pipe Diff-Serv Tunneling
+   Model as defined in <xref target="RFC3270"/>).  Thus the LSP could not be used to carry IPv4 with a
+   single label since the "IPv6 Explicit NULL label" cannot be used to
+   carry native IPv4 traffic <xref target="RFC3032"/>. While it could be used to
+   carry Labeled IPv4 traffic <xref target="RFC4182"/>. 
+   <xref target="RFC3032"/> section 2.2 states that the LSR that pops the last label off the label stack must be able to identify the packets network layer protocol in this
+   case IPv4.  However, the label stack does not contain any field that explicitly carries the network layer protocol.  Thus the network layer protocol must be inferrable
+   from the value of the label which is popped from the bottom of the label stack along with subsequent headers.  
+   It is up to the network designer as to labeling the IPv4 prefixes or not based on the use case and desired and requirements. 
+   There maybe cases where it is not desirable to label the IPv4 prefixes and instead use a per CE label table LSP to carry the per CE unlabled IPv4 prefixes in a separate IPv4 routing context.       
+  </t>  
+
+ <t>  
+  The label bound by MP-BGP to the IPv4 prefix indicates to the egress 4PE Router that the packet is an IPv4 packet. 
+  The label advertised by the egress 4PE Router with MP-BGP MAY be an explicit Null label Pipe mode Diff-Serv Tunneling Model 
+  use case as defined in <xref target="RFC3270"/>. In this case the topmost label can be preserved Ultimate Hop POP (UHP) to the egress PE.  
+  With the Default implicit-null Penultimate Hop (PHP) mode, the egress LSR P node would POP the topmost label revealing the native 
+  IPv4 packet which would be subsequently dropped as the Core underlay is an IPv6-Only core.  There maybe cases where implicit null value 3 is not signaled by 
+  the egress PE either by default.  In such case the implicit null is not signaled to the PHP node and thus is disabled.  In this particular case 
+  explicit null label and Pipe mode Diff-Serv Tunneling Model is not necessary as the topmost label remains intact and preserved to the egress PE using any "arbitrary label".
+ </t>  
+  
+  
+ <t>    
+   BGP/MPLS VPN <xref target="RFC4364"/> defines 3 label allocation modes for Layer L2 and 3 VPN's as follows: 
+   1. Per Prefix label allocation mode where all prefixes are labeled. 
+   1. Per-CE label allocation mode where all prefixes from a CE next hop are given the same label. 
+   2. Per-VRF label allocation mode where all prefixes that belong to a VRF are given the same label. 
+   These options are available for L3 VPN for scalability and are also applicable to the 4PE.
+   The two level label stack using a per prefix label allcoation mode is what is used in 6PE <xref target="RFC4798"/> with a requirement to label all the IPv6 prefixes using BGP-LU <xref target="RFC8277"/>.
+   4PE provides the same operator flxeiblity as BGP/MPLS VPN <xref target="RFC4798"/>, 2 level label stack option using Per-CE label allocation mode where the next hop is label so all prefixes associated with CE get the same label.
+   4PE design provides the same operator flxeiblity as BGP/MPLS VPN <xref target="RFC4798"/>, 2 level label stack option using Per-VRF label allocation mode where all prefixes within a VRF get the same is label.  
+  </t> 
+  
+ <t>    
+   Every link in the IPv4 Internet must have an MTU
+   of 576 octets or larger per <xref target="RFC1122"/>.  Therefore, on MPLS links that are used for
+   transport of IPv4, as per the 4PE approach, and that do not support
+   link-specific fragmentation and reassembly, the MTU must be
+   configured to at least 1280 octets plus the MPLS label stack encapsulation overhead bytes.
+  </t>  
+ <t>    
+   Some IPv4 hosts might be sending packets larger than the MTU
+   available in the IPv6 MPLS core and rely on Path MTU discovery to
+   learn about those links.  To simplify MTU discovery operations, one
+   option is for the network administrator to engineer the MTU on the
+   core facing interfaces of the ingress 4PE consistent with the core
+   MTU.  ICMP ' Destination Unreachable' messages can then be sent back by the
+   ingress 4PE without the corresponding packets ever entering the MPLS
+   core.  Otherwise, routers in the IPv6 MPLS network have the option to
+   generate an ICMP "Destination Unreachable" Fragmentation Required Type 3 Code 4 message using mechanisms as
+   described in Section 2.3.2, "Tunneling Private Addresses through a
+   Public Backbone" of <xref target="RFC3032"/>.
+  </t>  
+ <t>    
+   Note that in the above case, should a core router with an outgoing
+   link with an MTU smaller than 1280 receive an encapsulated IPv4
+   packet larger than 576, then the mechanisms of <xref target="RFC3032"/> may result
+   in the "Unreachable" message never reaching the sender.  This is
+   because, according to <xref target="RFC4443"/>, the underlay LSR (LSP or RSVP-TE tunnel) will build an ICMP
+   "Unreachable " message filled with the invoking packet up to 1280
+   bytes.  The LSR when forwarding downstream towards the egress PE as per
+   <xref target="RFC3032"/>, the MTU of the outgoing link will cause the packet to be
+   dropped.  This may cause significant operational problems. The
+   originator of the packets will notice that his data is not getting
+   through, without knowing why and where they are discarded.  This
+   issue would only occur if the above recommendation to configure MTU
+   on MPLS links of at least 1280 octets plus encapsulation overhead is
+   not used.
+  </t>    
+       
+
+ </section>
+
+        <section anchor="proto4" title="4PE SR-MPLS Support">	
+   			
+   <t>
+    The 4PE design suports the Segment Routing SR-MPLS architecture <xref target="RFC8660"/>, as SR-MPLS reuses the MPLS data plane with a new forwarding context using topological SIDs. 
+    The 4PE underlay signalling going from MPLS to SR-MPLS remains the same as the IPv6 LSP is still signalled as before from ingress PE to egress PE.  
+    The 4PE BGP overlay the design for SR-MPLS is identical to MPLS where the Ingress and Egress PE and the IPv4 NLIR can be optionally labeled.
+   </t>
+ 
+   <t>    
+    All else remains the same as far as 4PE and Inter-AS options.
+  </t>   
+   
+ 
+
+ </section>
+ 
+         <section anchor="proto5" title="4PE SRv6 Support">	
+			   			
+   <t>
+    In the 4PE design over an SRv6 network using SRv6 Netowrk Programming <xref target="RFC8986"/> forwarding plane would use endpoint behavior "Endpoint with decapsulation and IPv4 cross-connect" behavior
+   ("End.DX4" for short) is a variant of the End.X behavior for Global Table IPv4 Routing over SRv6 Core. 
+   </t>
+   
+    <t>     
+    The End.DX4 SID MUST be the last segment in an SR Policy, and it is associated with one or more L3 IPv4 adjacencies and
+    and SRv6 BGP Overlay Services <xref target="RFC9252"/> with the next hop encoding <xref target="RFC8950"/>.
+   </t>
+       
+ </section>
+ 
+
+         <section anchor="deploy" title="4PE Deployment Options">	
+			
+	<t>In this section we display all the possible use cases and highlight the flexiblity of 6PE capabilities and use of 3 different topmost labaels that can be signaled </t>
+
+<t><xref target="RFC3032"/> does not require Penultimate Hop POP (PHP) to be enabled by default.  When PHP is not signaled by the egress PE to the PHP node using implicit null value 3, 
+an arbitrary label can be utilized for the topmost label and in that case as PHP is not signaled by the egress PE node, PHP is not activated and thus the topmost label is presereved and not popped. 
+Using an arbitarry label eliminates the need for explicit null value 1 for IPv4 and value 2 for IPv6 to be imposed as the means to preserve the topmost label for DiffServ PIPE mode.</t>
+				 
+    <list style="symbols">		  
+	<t>Arbitrary label</t>
+	<t>Explicit Null Label for Diffserv PIPE Mode UHP signaling</t>
+	<t>Implicit Null label for PHP signaling</t>
+    </list>
+
+	<t>In these use cases we dispaly how the IPv4 prefixes tunnled over the IPv6 LSP can be labed or not labeled</t>
+				 
+    <list style="symbols">		  
+	<t>Labeled IPv4 prefixes</t>
+	<t>Unlabeled IPv4 prefixes</t>
+    </list>
+			  
+     <t>All deployment options are applicable to intra-as and inter-as options A, B, C, AB, with Data planes MPLS, SR-MPLS, SRv6. </t> 
+
+   <section anchor="Arbitrary1" title="Arbitrary topmost with all customer prefixes labeled">
+	   <t>Arbitrary topmost label where LERs signal IPv6 topmost LSP with 2 level label stack  BOS set <xref target="RFC8277"/> 1/4 service label labeling all IPv4 customer prefixes</t>
+
+	   <t>In this scenario all the attached CE prefixes in the global table are labled and this is similar to IP-VPN per perfix label allocation </t>
+
+	   <t>Due to the per prefix label allocation in this scenario it is not as scalable and convergence maybe slower</t>	   
+
+   </section>
+
+   
+   <section anchor="Arbitrary2" title="Arbitrary topmost with PE to PE LSP">
+	   <t>Arbitrary topmost label where LERs signal IPv6 topmost LSP with 2 level label stack, BOS set <xref target="RFC8277"/> 1/4 service label using ingress to egress  PE loopback to 
+	   loopback LSP single BOS label with all global table customer prefixes unlabeled.</t>
+
+	   <t>In this optimized scenario a single ingrees 4PE to 4PE LSP is created to carry all the CE prefixes </t>
+
+	   <t>This sceanario is most optimized from a label allocation perspective from all other scenarios in that only a single service label is allocated signaled by the service LSP which now is able to carry all
+	   of the global table prefixes populated by the attached CE's as unlabeled IPv4 customer prefixes.  This scenario is similar to IP-VPN Per-VRF Label allocation</t>
+	   
+	   <t>This scenario provides per VRF prefix independent BGP PIC Edge like convergence with Per VRF prefix independence as when the PE LSP is withdrawn, 
+	   all attached CE's and related unlabled prefixes are as well withdrawn further optimizing the convergence and creating per VRF independence convergence</t>	   
+	   
+	  <t>MPLS label allocation has a 20 bit label name space and thus allows for a maximum of 1 Millon labels.  This is an MPLS protocol limit that is hardware and software independent. 
+	  This scenario provides tremendous scale to the global internet table carried in the default VRF table now only allocating a single label for all 1 Million prefixes in the default VRF</t> 	   	   	   
+	   
+   </section>
+   
+   <section anchor="Arbitrary3" title="Arbitrary topmost with per CE label table">
+	   <t>Arbitrary topmost label where LERs signal IPv6 topmost LSP with 2 level label stack  BOS set <xref target="RFC8277"/> 1/4 service label using per CE label table routing context 
+	   LSP ingress to egress  CE PE-CE interface PE side interface LSP single BOS label with per CE label table customer prefixes unlabeled.</t>
+	   
+	   <t>This scenario is further optimized by creating a per CE next hop label table context similar to IP-VPN Per-CE or Per-Next-Hop label allocation mode where a single label is allocated per CE</t>
+
+	   <t>In this scenario a single service label is allocated signaled by the CE interface IP between the ingress 4PE and egreess 4PE creating the per CE label context service 
+	   LSP which we are now able to provide per CE next hop granularity label table context containing the per CE unlabled customer IPv4 prefixes.</t>
+
+	   <t>This scenario provides further granularity and per CE independent BGP PIC Edge like convergence with per CE prefix independence as when the per CE LSP is withdrawn 
+	   all the per CE related prefixes are as well withdrawn further optimizing the convergence and creating per CE independence granularity with the convergence</t>	   
+	   	
+	   	   
+   </section>
+   
+   <section anchor="Explicit1" title="Explicit Null topmost with all customer prefixes labeled">
+	   <t>Explicit Null topmost label where LERs signal IPv6 topmost LSP with 2 level label stack  BOS set <xref target="RFC8277"/> 1/4 service label labeling all IPv4 customer prefixes</t>	   
+
+	   <t>In this scenario all the attached CE prefixes in the global table are labled and this is similar to IP-VPN per perfix label allocation </t>
+
+	   <t>Due to the per prefix label allocation in this scenario it is not as scalable and convergence maybe slower</t>	  
+
+
+   </section>
+   
+   <section anchor="Explicit2" title="Explicit Null topmost with PE to PE LSP">
+	   <t>Explicit Null topmost label where LERs signal IPv6 topmost LSP with 2 level label stack, BOS set <xref target="RFC8277"/> 1/4 service label using ingress to egress  PE loopback to 
+	   loopback LSP single BOS label with all global table customer prefixes unlabeled.</t>	  
+
+	   <t>In this optimized scenario a single ingrees 4PE to 4PE LSP is created to carry all the CE prefixes </t>
+
+	   <t>This sceanario is most optimized from a label allocation perspective from all other scenarios in that only a single service label is allocated signaled by the service LSP which now is able to carry all
+	   of the global table prefixes populated by the attached CE's as unlabeled IPv4 customer prefixes.  This scenario is similar to IP-VPN Per-VRF Label allocation</t>
+	   
+	   <t>This scenario provides per VRF prefix independent BGP PIC Edge like convergence with Per VRF prefix independence as when the PE LSP is withdrawn, 
+	   all attached CE's and related unlabled prefixes are as well withdrawn further optimizing the convergence and creating per VRF independence convergence</t>	   
+	   
+	  <t>MPLS label allocation has a 20 bit label name space and thus allows for a maximum of 1 Millon labels.  This is an MPLS protocol limit that is hardware and software independent. 
+	  This scenario provides tremendous scale to the global internet table carried in the default VRF table now only allocating a single label for all 1 Million prefixes in the default VRF</t> 	  	   
+	 
+	   	    
+   </section>
+   
+   <section anchor="Explicit3" title="Explicit Null topmost with per CE label table">
+	   <t>Explicit Null topmost label where LERs signal IPv6 topmost LSP with 2 level label stack  BOS set <xref target="RFC8277"/> 1/4 service label using per CE label table routing context 
+	   LSP ingress to egress  CE PE-CE interface PE side interface LSP single BOS label with per CE label table customer prefixes unlabeled.</t>	   
+
+	   <t>This scenario is further optimized by creating a per CE next hop label table context similar to IP-VPN Per-CE or Per-Next-Hop label allocation mode where a single label is allocated per CE</t>
+
+	   <t>In this scenario a single service label is allocated signaled by the CE interface IP between the ingress 4PE and egreess 4PE creating the per CE label context service 
+	   LSP which we are now able to provide per CE next hop granularity label table context containing the per CE unlabled customer IPv4 prefixes.</t>
+
+	   <t>This scenario provides further granularity and per CE independent BGP PIC Edge like convergence with per CE prefix independence as when the per CE LSP is withdrawn 
+	   all the per CE related prefixes are as well withdrawn further optimizing the convergence and creating per CE independence granularity with the convergence</t>	
+	
+
+   </section>
+            
+   <section anchor="Implicit1" title="Implicit Null with all customer prefixes labeled">
+	   <t>Implicit Null topmost label where LERs signal IPv6 topmost LSP with 2 level label stack  BOS set <xref target="RFC8277"/> 1/4 service label labeling all IPv4 customer prefixes</t>	   	   
+ 
+ 	   <t>In this scenario all the attached CE prefixes in the global table are labled and this is similar to IP-VPN per perfix label allocation </t>
+
+	   <t>Due to the per prefix label allocation in this scenario it is not as scalable and convergence maybe slower</t>	  
+
+   </section>
+   
+   <section anchor="Implicit2" title="Implicit Null with PE to PE LSP">
+	  <t> Implict Null topmost label where LERs signal IPv6 topmost LSP with 2 level label stack, BOS set <xref target="RFC8277"/> 1/4 service label using ingress to egress  PE loopback to 
+	   loopback LSP single BOS label with all global table customer prefixes unlabeled.</t>   
+
+	   <t>In this optimized scenario a single ingrees 4PE to 4PE LSP is created to carry all the CE prefixes </t>
+
+	   <t>This sceanario is most optimized from a label allocation perspective from all other scenarios in that only a single service label is allocated signaled by the service LSP which now is able to carry all
+	   of the global table prefixes populated by the attached CE's as unlabeled IPv4 customer prefixes.  This scenario is similar to IP-VPN Per-VRF Label allocation</t>
+	   
+	   <t>This scenario provides per VRF prefix independent BGP PIC Edge like convergence with Per VRF prefix independence as when the PE LSP is withdrawn, 
+	   all attached CE's and related unlabled prefixes are as well withdrawn further optimizing the convergence and creating per VRF independence convergence</t>	   
+	   
+	  <t>MPLS label allocation has a 20 bit label name space and thus allows for a maximum of 1 Millon labels.  This is an MPLS protocol limit that is hardware and software independent. 
+	  This scenario provides tremendous scale to the global internet table carried in the default VRF table now only allocating a single label for all 1 Million prefixes in the default VRF</t> 	  
+
+   </section>
+   
+   <section anchor="Implicit3" title="Implicit Null with per CE label table">
+	   <t>Implicit Null topmost label where LERs signal IPv6 topmost LSP with 2 level label stack  BOS set <xref target="RFC8277"/> 1/4 service label using per CE label table routing context 
+	   LSP ingress to egress  CE PE-CE interface PE side interface LSP single BOS label with per CE label table customer prefixes unlabeled.</t>	   
+
+	   <t>This scenario is further optimized by creating a per CE next hop label table context similar to IP-VPN Per-CE or Per-Next-Hop label allocation mode where a single label is allocated per CE</t>
+
+	   <t>In this scenario a single service label is allocated signaled by the CE interface IP between the ingress 4PE and egreess 4PE creating the per CE label context service 
+	   LSP which we are now able to provide per CE next hop granularity label table context containing the per CE unlabled customer IPv4 prefixes.</t>
+
+	   <t>This scenario provides further granularity and per CE independent BGP PIC Edge like convergence with per CE prefix independence as when the per CE LSP is withdrawn 
+	   all the per CE related prefixes are as well withdrawn further optimizing the convergence and creating per CE independence granularity with the convergence</t>	
+
+   </section>
+
+   <section anchor="Arb1" title="Arbitrary topmost with customer prefixes unlabeled">
+	<t>Arbitrary topmost IPv6 LSP BOS set single level label stack with all global table customer prefixes 1/1 unlabeled.</t>
+	
+	<t>This scenario may require some deeper look into the packet Deep Packet Inspection (DPI) to determine next header inspection for protocol type so that the packets are not dropped.</t>	   
+   </section>   
+   
+   <section anchor="Exp1" title="Explicit Null topmost with customer prefixes unlabeled">
+	<t>Explicit null value 2 topmost IPv6 LSP BOS set single level label stack with all global table customer prefixes 1/1 unlabeled.</t>
+
+	<t>This scenario may require some deeper look into the packet Deep Packet Inspection (DPI) to determine next header inspection for protocol type so that the packets are not dropped.</t>
+		  
+   </section>   
+   
+  </section>
+
+ 
+       
+
+	<section anchor="interasbgplu" title="Crossing Multiple IPv6 Autonomous Systems">
+
+     	<section anchor="inter-as-l3vpn" title="Inter-AS 4PE Overview">  
+				
+	<t>
+   This section discusses the use case where two IPv4 islands are connected
+   to different Core Autonomous Systems (ASes)and utilizes 4 PE to connect the two Core ASes together.  The Inter-AS connectivity is established by connecting the PE from one AS to the 
+   PE of another AS, whereby the PE providing global table routing reachability between ASes, as a 4PE router, is acting as an Autonomous System Boundary Router (ASBR) 
+   to provide the Inter-AS ASBR to ASBR, PE to PE connectivity between ASN's.  In the 4PE design the Inter-AS link extends the underlay transport LSP so it is now extended between the ASes. 
+   Bottom of Stack S bit is set and using BGP-LU IPv4 BGP Labeled Unicast all the IPv4 prefixes can now be advertised between the ASes.  
+  </t>
+  
+   <t> 
+   Like in the case of multi-AS backbone operations for IPv6 VPNs
+   described in Section 10 of <xref target="RFC4364"/>, there are three inter-as design options and a fourth option defined in <xref target="I-D.mapathak-interas-ab"/> that are described below.
+  </t>
+ 
+   	</section>
+   		  	 
+      <section anchor="interasopta" title="Advertisement of IPv4 prefixes Inter-AS Procedure A">	
+ 
+ 	  <t>			 
+      This 4PE Inter-AS extension involves the advertisement of IPv4 prefixes (non-Labeled) using Inter-AS Style procedure (a). 
+      </t>
+        
+	  <t>			 
+      This design is the equivalent for exchange of IPv4 prefixes to
+      Inter-AS Style procedure (a) Back to Back CE (no-labeled) Inter-AS path where each PE acts like a CE (No MPLS) as described in Section 10 of <xref target="RFC4364"/> for the
+      exchange of VPN-IPv4 prefixes.  In the Inter-AS Style Procedure (a) the Control plane carrying the (non-labeled) prefixes is together per VRF subinterfaces with the Data Plane
+      forwarding over the Inter-AS ASBR to ASBR link.
+      </t>
+
+	  <t>  
+       In this scenario, the 4PE router uses iBGP to redistributes labeled IPv4 prefixes to a Route Reflector or Autonomous System Border Router (ASBR)4PE router to which  an ASBR 4PE router it is a client.
+       The ASBR then uses eBGP to advertise the (non labeled) IPv4 prefixes to an ASBR in another AS, which then distributes the IPv4 prefixes to 4PE routers in that AS or further redistributes to subsequent ASBRs and so on. 		             
+      </t>
+   
+ 	  <t>     
+      There may be one, or multiple, ASBR interconnection(s) across any
+      two ASes.  IPv4 MUST to be activated on the Inter-AS ASBR to ASBR (non-labeled) links and
+      each ASBR 4PE router MUST have at least one IPv4 address on the
+      interface connected to the Inter-AS ASBR to ASBR, PE to PE link.
+      </t>     
+	  <t>
+      No inter-AS LSPs are used are used in this Inter-AS Procedure (a) as described in Section 10 of <xref target="RFC4364"/>.  There is effectively a separate mesh
+      of LSPs across the 4PE routers within each AS for which the (non-labeled) IPv4 prefixes are advertised within the AS as BGP-LU IPv4 labled prefixes carried in the IPv6 signaled transport LSP mesh.
+      </t>
+	  <t>
+      In this design, the ASBR exchanging IPv4 prefixes MUST peer over
+      IPv4.  The exchange of IPv4 prefixes MUST be carried out as per <xref target="RFC4760"/>.
+      </t>
+
+      
+	</section>
+      <section anchor="interasoptbc" title="Advertisement of labeled IPv4 prefixes Inter-AS Procedure B/C">	
+		  
+       <section anchor="interasoptb" title="Advertisement of labeled IPv4 prefixes Inter-AS Procedure B">	
+	
+	  <t>	 	  
+       This scenario involves the eBGP redistribution of overlay labeled IPv4 prefixes between source and destination ASs, along with underlay eBGP redistribution of labeled unicast IPv6 routes
+       between source and destination ASs.    
+      </t>
+      
+ 	  <t>     
+      This scenario is the equivalent for exchange of IPv4 prefixes to
+      Inter-AS procedure (b) described in Section 10 of <xref target="RFC4364"/> for the
+      exchange of VPN-IPv4 prefixes.  
+      </t>
+	  <t>
+      In this scenario, the 4PE router uses iBGP to redistributes labeled IPv4 prefixes to a Route Reflector or Autonomous System Border Router (ASBR)4PE router to which  an ASBR 4PE router it is a client.
+      The ASBR then uses eBGP to advertise the labeled IPv4 prefixes to an ASBR in another AS, which then distributes the IPv4 prefixes to 4PE routers in that AS or further redistributes to subsequent ASBRs and so on. 		        
+      </t>
+	  <t>
+      There may be one, or multiple, ASBR interconnection(s) across any
+      two ASes.  Thus IPv4 may or may not to be activated on the Inter-AS link
+      </t>
+      
+	</section>
+	
+      <section anchor="interasoptc" title="Advertisement of labeled IPv4 prefixes Inter-AS Procedure C">	
+      	
+	  <t>  
+      This scenario involves the eBGP multihop redistribution of overlay labeled IPv4 prefixes between source and destination ASs, along with underlay eBGP redistribution of labeled unicast IPv6 routes
+      between source and destination ASs. 
+      </t>
+	  <t>        
+      This scenario is the equivalent for exchange of IPv4 prefixes to
+      Inter-AS procedure (c) described in Section 10 of <xref target="RFC4364"/> for exchange of
+      VPN-IPv4 prefixes.  
+      </t>   
+      
+	  <t> 
+       In this scenario the ASBRs need not be dual stacked as IPv4 prefixes redistributed between ASNs are tunneled over IPv6 and thus the IPv4 routes are not maintained or distributed on the 4PE ASBR routers.
+       The 4PE ASBR only needs to maintain /128 IPv6 routes to all 4PE routers in its AS so it can redistribute these underlay routes to other ASs for inter-as reachability. 
+       The 4PE ASBRs and any transit ASBRs will use eBGP to pass along the /128 IPv6 routes to other ASs in order to create an end to end IPv6 LSP from source AS ingress PE rouer to destination AS egress PE router.
+       Once the end to end IPv6 LSP is established, the 4PE routers in different ASs can now establish their eBGP multihop peering over IPv6 and now can exchange their IPv4 labeled unicast routes over the connection.   
+      </t>		  
+		 
+	  <t> 
+      IPv4 need not be activated on the Inter-AS ASBR to ASBR, PE to PE links.
+      </t>
+      
+	  <t>
+      There may be one, or multiple, ASBR interconnection(s) across any
+      two ASes.  IPv4 may or may not be activated on the Inter-AS link.
+      </t>
+            
+	  <t> 
+      Note that the 4PE Inter-AS extension for procedure (c) in Section 10 of <xref target="RFC4364"/> that the exchange of IPv4 prefixes can only start after
+      BGP has established IPv6 connectivity between the ASes.      
+	</t>
+
+  	</section>	 	
+  </section>
+ </section>  
+		
+ 	
+
+
+
+	
+    <section anchor="IANA" title="IANA Considerations">
+    <t> There are not any IANA considerations.
+    </t>
+	
+    </section>
+    <section anchor="security" title="Security Considerations">
+	<t>
+   No new extensions are defined in this document.  As such, no new security issues are raised beyond those
+   that already exist in BGP-4 and use of MP-BGP for IPv6.
+   </t>
+	<t>
+   The security features of BGP and corresponding security policy
+   defined in the ISP domain are applicable.
+   </t>
+	<t>
+   For the inter-AS distribution of IPv6 prefixes according to case (a) of
+   Section 4 of this document, no new security issues are raised beyond
+   those that already exist in the use of eBGP for IPv6 <xref target="RFC2545"/>.
+   </t>
+	</section>
+	
+		
+	<section anchor="ack" title="Acknowledgments">
+		<t>Many thanks to Ketan Talaulikar, Robert Raszuk, Igor Malyushkin, Linda Dunbar, Huaimo Chen, Dikshit Saumya for your thoughtful reviews and comments.</t> 
+	</section>
+  </middle>
+  <back>
+    <references title="Normative References">
+      &RFC2119;
+	  &RFC2545;
+	  &RFC4291;
+	  &RFC4364;
+	  &RFC4760;
+	  &RFC5492;
+	  &RFC8174;
+	  &RFC8277;
+	  &RFC8950;
+	  &RFC1812;
+	  &RFC3031;
+	  &RFC3032;
+	  &RFC3036;
+	  &RFC3107;	  
+	  &RFC3270;	  
+	  &RFC2460;
+	  &RFC4443;
+	  &RFC4029;	  
+	  &RFC4271;	  
+	  &RFC4182;	 
+	  &RFC1122;	
+	  &RFC5036;	
+	  &RFC8660;		  	  	  
+	  &RFC8986;	
+	  &RFC8754;	
+	  &RFC3209;	
+	  &RFC8402;
+	  &RFC7432;
+	  &RFC9252;
+	  &RFC9256;	  
+	  &RFC7938;
+	  &RFC9313;	  
+	  &RFC8200;	  
+	  &I-D.draft-ietf-idr-segment-routing-te-policy;
+	  &I-D.draft-ietf-idr-bgp-sr-segtypes-ext;		
+    </references>
+	<references title="Informative References">
+	&DYN-CAP;
+	&RFC4659;
+	&RFC4684;
+	&RFC4798;
+	&RFC4925;
+	&RFC8126;
+	&RFC5549;
+	&RFC5565;
+	&RFC6074;
+	&RFC6513;
+	&RFC6514;
+	&I-D.draft-mapathak-interas-ab;
+    </references>
+    <!-- references title="Informative References">
+    </references -->
+        
+  </back>
+</rfc>
